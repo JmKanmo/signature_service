@@ -62,6 +62,16 @@ function getCanvasCoordinates(event) {
     };
 }
 
+// 캔버스에 흰색 배경을 설정하는 함수 (저장 되는 이미지 편의성)
+function setCanvasBackground() {
+    const canvas = document.getElementById('signatureCanvas');
+    const context = canvas.getContext('2d');
+
+    // 흰색 배경으로 채우기
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 /* 캔버스 초기화 */
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -93,7 +103,7 @@ async function completeSignature() {
         const awsS3Client = new AwsS3Client();
         const result = awsS3Client.sendImageFileToAwsS3(signatureImage);
     } catch (error) {
-        alert('서명 이미지 생성 및 전송 작업이 실패. ERROR:' + error);
+        alert('서명 이미지 생성 및 전송 작업이 실패. [ERROR]:' + error);
         console.error(error);
     }
 }

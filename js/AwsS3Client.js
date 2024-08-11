@@ -39,11 +39,11 @@ class AwsS3Client {
         this.s3.upload(params, function(err, data) {
             if (err) {
                 console.error('[AwsS3Client:sendImageFileToAwsS3] ERROR:' + err);
-                alert('서명 이미지를 원격 저장소에 전송하지 못했습니다. ERROR:' + err);
+                alert('서명 이미지를 원격 저장소 저장에 실패했습니다. [ERROR]:' + err);
                 return false;
             } else {
                 console.log('[AwsS3Client:sendImageFileToAwsS3] Upload Success', data.Location);
-                alert(`서명 이미지를 원격 저장소에 성공적으로 전송 했습니다.<br>URL: ` + data.Location);
+                alert(`서명 이미지를 원격 저장소에 성공적으로 저장 했습니다. [URL]: ` + data.Location);
                 return true;
             }
         });

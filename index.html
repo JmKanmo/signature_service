@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자서명</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>전자서명</h2>
+        <canvas id="signatureCanvas" width="500" height="200"></canvas>
+        <button onclick="clearCanvas()">서명 지우기</button>
+        <button onclick="completeSignature()">서명 완료</button>
+
+        <div id="downloadLinkBox" style="text-align: center; margin-top: 1rem;">
+            <!-- 이미지 다운로드 A 태그 생성 -->
+        </div>
+    </div>
+</body>
+    <!-- AWS S3 SDK Library -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+    <script type="text/javascript" src="js/AwsS3Client.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</html>

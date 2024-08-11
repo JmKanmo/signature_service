@@ -101,7 +101,18 @@ async function completeSignature() {
     try {
         const signatureImage = saveCanvasImage();
         const awsS3Client = new AwsS3Client();
-        const result = awsS3Client.sendImageFileToAwsS3(signatureImage);
+        awsS3Client.sendImageFileToAwsS3(signatureImage, (imageUrl) => {
+            // imageUrl: AWS S3에 저장 된 서명 이미지 주소 URL
+            const downloadLinkBox = document.getElementById('downloadLinkBox');
+            const downloadLinkDiv = document.createElement('div');
+            downloadLinkDiv.style.marginTop = '1rem';            
+            const downloadLink = document.createElement('a');
+            downloadLink.href = imageUrl;
+            downloadLink.target = "_blank";
+            downloadLink.innerText = imageUrl;
+            downloadLinkDiv.appendChild(downloadLink);
+            downloadLinkBox.appendChild(downloadLinkDiv);
+        });
     } catch (error) {
         alert('서명 이미지 생성 및 전송 작업이 실패. [ERROR]:' + error);
         console.error(error);

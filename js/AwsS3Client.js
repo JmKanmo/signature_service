@@ -13,7 +13,7 @@ class AwsS3Client {
     }
 
     // 이미지 파일을 aws s3 저장소에 전송
-    sendImageFileToAwsS3(imageDataURL) {
+    sendImageFileToAwsS3(imageDataURL, successCallback) {
         const blob = this.dataURLToBlob(imageDataURL);
 
         // 날짜 기반 디렉토리 및 랜덤 파일명 생성
@@ -40,11 +40,12 @@ class AwsS3Client {
             if (err) {
                 console.error('[AwsS3Client:sendImageFileToAwsS3] ERROR:' + err);
                 alert('서명 이미지를 원격 저장소 저장에 실패했습니다. [ERROR]:' + err);
-                return false;
             } else {
                 console.log('[AwsS3Client:sendImageFileToAwsS3] Upload Success', data.Location);
                 alert(`서명 이미지를 원격 저장소에 성공적으로 저장 했습니다. [URL]: ` + data.Location);
-                return true;
+                if(successCallback != null && successCallback) {
+                    successCallback(data.Location);
+                }
             }
         });
     } 

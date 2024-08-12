@@ -150,7 +150,7 @@ function generateUniqueString(existingStrings, length = 10) {
 /* 개인 정보 동의서 로드 및 표시 */
 function initPrivacyAgreeContent() {
     const httpClient = new HTTPClient();
-    httpClient.sendRequestToS3('https://freelog-s3-bucket.s3.amazonaws.com/image/privacy_info_template.html', (content) => {
+    httpClient.sendRequestToS3('https://signature-source.s3.ap-northeast-2.amazonaws.com/template/privacy_info_template.html', (content) => {
         const privacyAgreeBox = document.getElementById('privacyAgreeBox');
         privacyAgreeBox.innerHTML = content;
     });

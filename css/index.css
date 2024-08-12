@@ -5,14 +5,17 @@ body {
     margin: 20px;
 }
 .container {
-    max-width: 600px;
+    max-width: 1080px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-input, button, canvas, a {
+/* input,  */
+button, 
+canvas, 
+a {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -29,4 +32,10 @@ canvas {
     border-radius: 5px;
     display: block;
     margin: 0 auto;
+}
+
+.clear_fix::after {
+    content: "";
+    display: block;
+    clear: both;
 }

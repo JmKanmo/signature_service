@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+        #content_box {
+            position: relative; /* 부모 요소의 크기에 따라 컨텐츠를 스크롤 가능하게 */
+            width: 100%;
+            height: 1080px; /* 원하는 높이로 설정 */
+            overflow-y: scroll; /* 수직 스크롤 활성화 */
+            overflow-x: auto; /* 필요시 수평 스크롤 활성화 */
+            background-color: #ebebeb;
+        }
+
+        .page_box {
+            display: block;
+            position: relative;
+            padding: 0;
+            -webkit-box-shadow: 0 0 8px 3px #d3d3d3;
+            -moz-box-shadow: 0 0 8px 3px #d3d3d3;
+            box-shadow: 0 0 8px 3px #d3d3d3;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            border: none;
+        }
+    </style>
+    <title>개인정보의 수집.이용 및 제공 동의서</title>
+</head>
+<body>
+    <div id="content_box">
+        <div class="page_box" style="width: 794px; height: 1123px;">
+            <iframe style="height:100%;width:100%;" src="https://freelog-s3-bucket.s3.amazonaws.com/image/privacy_info_template1.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        </div>
+        <div class="page_box" style="width: 794px; height: 1123px;">
+            <iframe style="height:100%;width:100%;" src="https://freelog-s3-bucket.s3.amazonaws.com/image/privacy_info_template2.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        </div>
+        <div class="page_box" style="width: 794px; height: 1123px;">
+            <iframe style="height:100%;width:100%;" src="https://freelog-s3-bucket.s3.amazonaws.com/image/privacy_info_template3.html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        </div>
+    </div>
+</body>
+</html>

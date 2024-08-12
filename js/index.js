@@ -99,8 +99,16 @@ function saveCanvasImage() {
 /* 서명 완료 후 이미지 원격 저장소 전송 */
 async function completeSignature() {
     try {
+        const privacyAgreeCheck = document.getElementById('privacyAgreeCheckBtn').checked;
+
+        if(privacyAgreeCheck === false) {
+            alert('개인정보 수집.이용, 제공 동의 버튼을 체크 해주세요.');
+            return;
+        }
+
         const signatureImage = saveCanvasImage();
         const awsS3Client = new AwsS3Client();
+
         awsS3Client.sendImageFileToAwsS3(signatureImage, (imageUrl) => {
             // imageUrl: AWS S3에 저장 된 서명 이미지 주소 URL
             const downloadLinkBox = document.getElementById('downloadLinkBox');
@@ -139,8 +147,18 @@ function generateUniqueString(existingStrings, length = 10) {
     return newString;
 }
 
+/* 개인 정보 동의서 로드 및 표시 */
+function initPrivacyAgreeContent() {
+    const httpClient = new HTTPClient();
+    httpClient.sendRequestToS3('https://freelog-s3-bucket.s3.amazonaws.com/image/privacy_info_template.html', (content) => {
+        const privacyAgreeBox = document.getElementById('privacyAgreeBox');
+        privacyAgreeBox.innerHTML = content;
+    });
+}
+
 /* 페이지 로드 후 초기화 */
 document.addEventListener("DOMContentLoaded", () => {
     initEventListener();
     setCanvasBackground();
+    initPrivacyAgreeContent();
 });

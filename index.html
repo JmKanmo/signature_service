@@ -10,16 +10,21 @@
     <div class="container">
         <h2>전자서명</h2>
         <canvas id="signatureCanvas" width="500" height="300"></canvas>
+        <div id="downloadLinkBox" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem;"> <!-- 이미지 다운로드 A 태그 생성 --> </div>
         <button onclick="clearCanvas()">서명 지우기</button>
         <button onclick="completeSignature()">서명 완료</button>
-        <!-- TODO 개인 정보 동의 서약 태그 추가 -->
-        <div id="downloadLinkBox" style="text-align: center; margin-top: 1rem;">
-            <!-- 이미지 다운로드 A 태그 생성 -->
-        </div>
+        <div class="clear_fix" style="/* padding-left: 1rem; */margin-top: 1.5rem;">
+            <h3 style="float: left;font-size: 1rem;margin: 0 auto;">
+                개인정보 수집.이용, 제공 동의 
+            </h3>
+            <input type="checkbox" style="float: left;margin-left: 10px;" id="privacyAgreeCheckBtn">
+        </div>      
+        <div id="privacyAgreeBox" style="margin-top: 1rem"> <!-- 개인 정보 수집 이용,제공 동의서 표시 --> </div>
     </div>
 </body>
     <!-- AWS S3 SDK Library -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
     <script type="text/javascript" src="js/AwsS3Client.js"></script>
+    <script type="text/javascript" src="js/HTTPClient.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </html>
